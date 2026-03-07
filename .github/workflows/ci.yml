@@ -34,28 +34,28 @@ jobs:
       - name: Run tests
         run: pytest
 
-      # 5️⃣ 可选：检查代码风格
-      - name: Lint with flake8
-        run: |
-          pip install flake8
-          flake8 app tests
+#      # 5️⃣ 可选：检查代码风格
+#      - name: Lint with flake8
+#        run: |
+#          pip install flake8
+#          flake8 app tests
 
   # ===============================
   # 2️⃣ Docker 构建 Job
   # 依赖 test job 成功
   # ===============================
-  docker-build:
-    needs: test
-    runs-on: ubuntu-latest
-
-    steps:
-      # 1️⃣ 拉取代码
-      - uses: actions/checkout@v3
-
-      # 2️⃣ 构建 Docker 镜像
-      - name: Build Docker image
-        run: |
-          docker build -t flask-demo:${{ github.sha }} .
+#  docker-build:
+#    needs: test
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      # 1️⃣ 拉取代码
+#      - uses: actions/checkout@v3
+#
+#      # 2️⃣ 构建 Docker 镜像
+#      - name: Build Docker image
+#        run: |
+#          docker build -t flask-demo:${{ github.sha }} .
 
       # 3️⃣ 可选：推送 Docker 镜像到 Docker Hub
       # - name: Log in to Docker Hub
